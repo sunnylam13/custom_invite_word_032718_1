@@ -6,8 +6,8 @@ except ImportError:
 config = {
 	'description': 'Creates a custom invitation Word document using a list of names in a text file.',
 	'author': 'Sunny Lam',
-	'url': 'URL to get it at',
-	'download_url': 'Where to download it',
+	'url': 'https://github.com/sunnylam13/custom_invite_word_032718_1',
+	'download_url': 'https://github.com/sunnylam13/custom_invite_word_032718_1',
 	'author_email': 'sunny.lam@gmail.com',
 	'version': '0.1',
 	'install_requires': ['nose'],
