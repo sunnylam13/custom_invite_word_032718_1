@@ -16,3 +16,21 @@ should be one invite per page so page breaks will be needed...  after the last p
 
 that way you only need to open one Word document to print all invites at the same time
 
+## Wednesday, March 28, 2018 9:50 AM
+
+[Python File readlines() Method](https://www.tutorialspoint.com/python/file_readlines.htm)
+
+	fileObject.readlines( sizehint );
+
+Return Value
+This method returns a list containing the lines.
+
+Example
+The following example shows the usage of readlines() method.
+
+	This is 1st line
+	This is 2nd line
+	This is 3rd line
+	This is 4th line
+	This is 5th line
+
