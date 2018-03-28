@@ -52,11 +52,6 @@ doc = docx.Document()
 
 styles = doc.styles # whole doc's styles object
 
-style_citation_1 = styles.add_style('Citation', WD_STYLE_TYPE.PARAGRAPH)
-logging.debug( "The style name created is:  %s" % (style_citation_1.name) )
-logging.debug( "The style type created is:  %s" % (style_citation_1.name) )
-logging.debug( style_citation_1.type )
-
 style_italic_emph_1 = styles.add_style('GuestItalics', WD_STYLE_TYPE.PARAGRAPH)
 logging.debug( "The style name created is:  %s" % (style_italic_emph_1.name) )
 logging.debug( "The style type created is:  %s" % (style_italic_emph_1.name) )
