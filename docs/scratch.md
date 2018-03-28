@@ -155,4 +155,12 @@ where
 
 are identical
 
+## Wednesday, March 28, 2018 11:10 AM
+
+We need to use a for loop that increments the positions by a total of 5...
+
+For the very first invite n = 0 * 5 which means no incrementing...
+
+For the 2nd invite n = 1 * 5 which means a five point increment...
+
 
