@@ -87,3 +87,72 @@ As it stands right now only the first invite gets any styling...  because the po
 
 This means we need a loop that counts numbers for each line of the invite within the guest_list loop...
 
+Reference:
+
+https://python-docx.readthedocs.io/en/latest/user/text.html
+
+Specifically:
+
+"Apply character formatting"
+
+I think I have to create "runs" rather than just "paragraphs" where I can apply the style directly to the run, otherwise just creating a paragraph without creating runs leads to the entire paragraph being the entire run.
+
+	MacBook-Air:custom_invite_word sunnyair$ python3 custom_invite_word_032718_1.py "../tests/guests.txt"
+	 2018-03-28 10:24:28,278 - DEBUG - Guest list text file input is:  ../tests/guests.txt
+	 2018-03-28 10:24:28,305 - DEBUG - The guest list extracted from text is:
+	 2018-03-28 10:24:28,305 - DEBUG - ['Prof. Plum\n', 'Miss Scarlet\n', 'Col. Mustard\n', 'Al Sweigart\n', 'Robocop']
+	 2018-03-28 10:24:28,306 - DEBUG - It would be a pleasure to have the company of
+	 2018-03-28 10:24:28,308 - DEBUG - Prof. Plum
+
+	 2018-03-28 10:24:28,309 - DEBUG - at 11010 Memory Lane on the Evening of
+	 2018-03-28 10:24:28,310 - DEBUG - at 11010 Memory Lane on the Evening of
+	 2018-03-28 10:24:28,310 - DEBUG - April 1st
+	 2018-03-28 10:24:28,310 - DEBUG - April 1st
+	 2018-03-28 10:24:28,311 - DEBUG - at 7 o'clock
+	 2018-03-28 10:24:28,312 - DEBUG - at 7 o'clock
+	 2018-03-28 10:24:28,312 - DEBUG - It would be a pleasure to have the company of
+	 2018-03-28 10:24:28,314 - DEBUG - Prof. Plum
+
+	 2018-03-28 10:24:28,316 - DEBUG - at 11010 Memory Lane on the Evening of
+	 2018-03-28 10:24:28,316 - DEBUG - at 11010 Memory Lane on the Evening of
+	 2018-03-28 10:24:28,317 - DEBUG - April 1st
+	 2018-03-28 10:24:28,317 - DEBUG - April 1st
+	 2018-03-28 10:24:28,318 - DEBUG - at 7 o'clock
+	 2018-03-28 10:24:28,318 - DEBUG - at 7 o'clock
+	 2018-03-28 10:24:28,319 - DEBUG - It would be a pleasure to have the company of
+	 2018-03-28 10:24:28,321 - DEBUG - Prof. Plum
+
+	 2018-03-28 10:24:28,323 - DEBUG - at 11010 Memory Lane on the Evening of
+	 2018-03-28 10:24:28,323 - DEBUG - at 11010 Memory Lane on the Evening of
+	 2018-03-28 10:24:28,324 - DEBUG - April 1st
+	 2018-03-28 10:24:28,324 - DEBUG - April 1st
+	 2018-03-28 10:24:28,326 - DEBUG - at 7 o'clock
+	 2018-03-28 10:24:28,326 - DEBUG - at 7 o'clock
+	 2018-03-28 10:24:28,326 - DEBUG - It would be a pleasure to have the company of
+	 2018-03-28 10:24:28,328 - DEBUG - Prof. Plum
+
+	 2018-03-28 10:24:28,330 - DEBUG - at 11010 Memory Lane on the Evening of
+	 2018-03-28 10:24:28,330 - DEBUG - at 11010 Memory Lane on the Evening of
+	 2018-03-28 10:24:28,331 - DEBUG - April 1st
+	 2018-03-28 10:24:28,331 - DEBUG - April 1st
+	 2018-03-28 10:24:28,333 - DEBUG - at 7 o'clock
+	 2018-03-28 10:24:28,333 - DEBUG - at 7 o'clock
+	 2018-03-28 10:24:28,333 - DEBUG - It would be a pleasure to have the company of
+	 2018-03-28 10:24:28,335 - DEBUG - Prof. Plum
+
+	 2018-03-28 10:24:28,336 - DEBUG - at 11010 Memory Lane on the Evening of
+	 2018-03-28 10:24:28,336 - DEBUG - at 11010 Memory Lane on the Evening of
+	 2018-03-28 10:24:28,337 - DEBUG - April 1st
+	 2018-03-28 10:24:28,337 - DEBUG - April 1st
+	 2018-03-28 10:24:28,339 - DEBUG - at 7 o'clock
+	 2018-03-28 10:24:28,339 - DEBUG - at 7 o'clock
+	MacBook-Air:custom_invite_word sunnyair$
+
+where
+
+	2018-03-28 10:24:28,330 - DEBUG - at 11010 Memory Lane on the Evening of # the paragraph
+	2018-03-28 10:24:28,330 - DEBUG - at 11010 Memory Lane on the Evening of # the run[0]
+
+are identical
+
+
