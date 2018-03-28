@@ -55,11 +55,14 @@ def construct_invite_1(doc,guest_list):
 		logging.debug(doc.paragraphs[1].text)
 		doc.paragraphs[1].style = 'Title'
 		
-		doc.add_paragraph('at 11010 Memory Lane on the Evening of')
-		logging.debug(doc.paragraphs[2].text)
+		document.add_paragraph().add_run('at')
+		document.add_paragraph().add_run('11010 Memory Lane on the Evening of')
+		# doc.add_paragraph('at 11010 Memory Lane on the Evening of')
+		# logging.debug(doc.paragraphs[2].text)
 		logging.debug(doc.paragraphs[2].runs[0].text)
+		logging.debug(doc.paragraphs[2].runs[1].text)
 		# logging.debug(doc.paragraphs[2].runs[0].text)
-		doc.paragraphs[2].runs[0].underline = True # 'at'
+		# doc.paragraphs[2].runs[0].underline = True # 'at'
 		# doc.paragraphs[2].runs[1].style['Heading3'] = True # '11010 Memory Lane on the Evening of'
 		
 		doc.add_paragraph('April 1st')
@@ -67,9 +70,12 @@ def construct_invite_1(doc,guest_list):
 		logging.debug(doc.paragraphs[3].runs[0].text)
 		doc.paragraphs[3].style = 'Normal'
 		
-		doc.add_paragraph("at 7 o'clock")
-		logging.debug(doc.paragraphs[4].text)
+		# doc.add_paragraph("at 7 o'clock")
+		document.add_paragraph().add_run('at')
+		document.add_paragraph().add_run("7 o'clock")
+		# logging.debug(doc.paragraphs[4].text)
 		logging.debug(doc.paragraphs[4].runs[0].text)
+		logging.debug(doc.paragraphs[4].runs[1].text)
 		# doc.paragraphs[4].runs[0].underline.italic = True # 'at'
 		# doc.paragraphs[4].runs[1].style = 'IntenseQuote' # '7 o'clock'
 		
