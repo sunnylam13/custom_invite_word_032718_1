@@ -57,17 +57,21 @@ def construct_invite_1(doc,guest_list):
 		
 		doc.add_paragraph('at 11010 Memory Lane on the Evening of')
 		logging.debug(doc.paragraphs[2].text)
-		doc.paragraphs[2].runs[0].style = 'Heading4' # 'at'
-		doc.paragraphs[2].runs[1].style = 'Heading3' # '11010 Memory Lane on the Evening of'
+		logging.debug(doc.paragraphs[2].runs[0].text)
+		# logging.debug(doc.paragraphs[2].runs[0].text)
+		doc.paragraphs[2].runs[0].underline = True # 'at'
+		# doc.paragraphs[2].runs[1].style['Heading3'] = True # '11010 Memory Lane on the Evening of'
 		
 		doc.add_paragraph('April 1st')
 		logging.debug(doc.paragraphs[3].text)
+		logging.debug(doc.paragraphs[3].runs[0].text)
 		doc.paragraphs[3].style = 'Normal'
 		
 		doc.add_paragraph("at 7 o'clock")
 		logging.debug(doc.paragraphs[4].text)
-		doc.paragraphs[4].runs[0].style = 'Heading4' # 'at'
-		doc.paragraphs[4].runs[1].style = 'IntenseQuote' # '7 o'clock'
+		logging.debug(doc.paragraphs[4].runs[0].text)
+		# doc.paragraphs[4].runs[0].underline.italic = True # 'at'
+		# doc.paragraphs[4].runs[1].style = 'IntenseQuote' # '7 o'clock'
 		
 		doc.add_page_break() # add page break
 
