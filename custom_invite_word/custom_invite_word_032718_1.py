@@ -73,12 +73,12 @@ def construct_invite_1(doc,guest_list):
 		doc.add_paragraph('April 1st')
 		logging.debug(doc.paragraphs[3 + counter].text)
 		logging.debug(doc.paragraphs[3 + counter].runs[0].text)
-		doc.paragraphs[3 + x*5].style = 'Normal'
+		doc.paragraphs[3 + counter].style = 'Normal'
 		logging.debug('Styles applied')
 
 		# doc.add_paragraph("at 7 o'clock")
 		doc.add_paragraph().add_run('at')
-		doc.paragraphs[4 + x*5].add_run("7 o'clock") # add to the same paragraph
+		doc.paragraphs[4 + counter].add_run("7 o'clock") # add to the same paragraph
 		# logging.debug(doc.paragraphs[4].text)
 		logging.debug(doc.paragraphs[4 + counter].runs[0].text)
 		logging.debug(doc.paragraphs[4 + counter].runs[1].text)
