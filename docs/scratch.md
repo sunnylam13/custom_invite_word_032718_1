@@ -167,4 +167,60 @@ For the 2nd invite n = 1 * 5 which means a five point increment...
 
 Have to put the position numbering loop as the parent with the name loop as the child.
 
+## Wednesday, March 28, 2018 11:34 AM
+
+	ValueError: assigned style is type PARAGRAPH (1), need type CHARACTER (2)
+
+## Wednesday, March 28, 2018 11:35 AM
+
+[Set paragraph font in python-docx](https://stackoverflow.com/questions/27884703/set-paragraph-font-in-python-docx)
+
+This is how to set the Normal style to font Arial and size 10pt.
+
+	from docx.shared import Pt
+
+	style = document.styles['Normal']
+	font = style.font
+	font.name = 'Arial'
+	font.size = Pt(10)
+
+And this is how to apply it to a paragraph.
+
+	paragraph.style = document.styles['Normal']
+
+Using the current latest version of python-docx (0.8.5)
+
+## Wednesday, March 28, 2018 11:48 AM
+
+Setting base styles
+
+	style.base_style
+	logging.debug( style.base_style )
+	style.base_style = styles['Normal']
+	logging.debug( style.base_style )
+	style.base_style.name
+	logging.debug( style.base_style.name )
+
+where style is a previously created style object...
+
+	style_citation_1 = styles.add_style('Citation', WD_STYLE_TYPE.PARAGRAPH)
+	logging.debug( "The style name created is:  %s" % (style_citation_1.name) )
+	logging.debug( "The style type created is:  %s" % (style_citation_1.name) )
+	logging.debug( style_citation_1.type )
+
+	style_citation_1.base_style
+	logging.debug( style_citation_1.base_style )
+	style_citation_1.base_style = styles['Normal']
+	logging.debug( style_citation_1.base_style )
+	style_citation_1.base_style.name
+	logging.debug( style_citation_1.base_style.name )
+
+Another example of creating a new style:
+
+	style_citation_1 = styles.add_style('Citation', WD_STYLE_TYPE.PARAGRAPH)
+	logging.debug( "The style name created is:  %s" % (style_citation_1.name) )
+	logging.debug( "The style type created is:  %s" % (style_citation_1.name) )
+	logging.debug( style_citation_1.type )
+
+
 

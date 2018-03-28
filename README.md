@@ -16,3 +16,8 @@ When used from the main program the path is:
 
 ABSP:  532
 
+[Working with Styles](https://python-docx.readthedocs.io/en/latest/user/styles-using.html)
+
+[Working with Text / Apply Character Formatting](https://python-docx.readthedocs.io/en/latest/user/text.html)
+
+[Set paragraph font in python-docx](https://stackoverflow.com/questions/27884703/set-paragraph-font-in-python-docx)
