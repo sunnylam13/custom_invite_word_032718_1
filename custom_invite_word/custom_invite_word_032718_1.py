@@ -46,46 +46,49 @@ doc = docx.Document()
 
 def construct_invite_1(doc,guest_list):
 
-	for x in ( 0,len(guest_list) ): # start at 0 so that first invite is built right
-		for name in guest_list:
-			doc.add_paragraph('It would be a pleasure to have the company of')
-			logging.debug(doc.paragraphs[0].text)
-			doc.paragraphs[0 + x*5].style = 'Subtitle'
-			logging.debug('Styles applied')
-			
-			# insert the guest's name
-			doc.add_paragraph(name)
-			logging.debug(doc.paragraphs[1].text)
-			doc.paragraphs[1 + x*5].style = 'Title'
-			logging.debug('Styles applied')
-			
-			doc.add_paragraph().add_run('at')
-			doc.paragraphs[2 + x*5].add_run('11010 Memory Lane on the Evening of') # add to the same paragraph
-			# doc.add_paragraph('at 11010 Memory Lane on the Evening of')
-			logging.debug(doc.paragraphs[2 + x*5].runs[0].text)
-			logging.debug(doc.paragraphs[2 + x*5].runs[1].text)
-			# logging.debug(doc.paragraphs[2].runs[0].text)
-			# doc.paragraphs[2].runs[0].underline = True # 'at'
-			# doc.paragraphs[2].runs[1].style['Heading3'] = True # '11010 Memory Lane on the Evening of'
-			logging.debug('Styles applied')
+	counter = 0
 
-			doc.add_paragraph('April 1st')
-			logging.debug(doc.paragraphs[3 + x*5].text)
-			logging.debug(doc.paragraphs[3 + x*5].runs[0].text)
-			doc.paragraphs[3 + x*5].style = 'Normal'
-			logging.debug('Styles applied')
+	for name in guest_list:
+		doc.add_paragraph('It would be a pleasure to have the company of')
+		logging.debug(doc.paragraphs[0].text)
+		doc.paragraphs[0 + counter].style = 'Subtitle'
+		logging.debug('Styles applied')
+		
+		# insert the guest's name
+		doc.add_paragraph(name)
+		logging.debug(doc.paragraphs[1].text)
+		doc.paragraphs[1 + counter].style = 'Title'
+		logging.debug('Styles applied')
+		
+		doc.add_paragraph().add_run('at')
+		doc.paragraphs[2 + counter].add_run('11010 Memory Lane on the Evening of') # add to the same paragraph
+		# doc.add_paragraph('at 11010 Memory Lane on the Evening of')
+		logging.debug(doc.paragraphs[2 + counter].runs[0].text)
+		logging.debug(doc.paragraphs[2 + counter].runs[1].text)
+		# logging.debug(doc.paragraphs[2].runs[0].text)
+		# doc.paragraphs[2].runs[0].underline = True # 'at'
+		# doc.paragraphs[2].runs[1].style['Heading3'] = True # '11010 Memory Lane on the Evening of'
+		logging.debug('Styles applied')
 
-			# doc.add_paragraph("at 7 o'clock")
-			doc.add_paragraph().add_run('at')
-			doc.paragraphs[4 + x*5].add_run("7 o'clock") # add to the same paragraph
-			# logging.debug(doc.paragraphs[4].text)
-			logging.debug(doc.paragraphs[4 + x*5].runs[0].text)
-			logging.debug(doc.paragraphs[4 + x*5].runs[1].text)
-			# doc.paragraphs[4].runs[0].underline.italic = True # 'at'
-			# doc.paragraphs[4].runs[1].style = 'IntenseQuote' # '7 o'clock'
-			logging.debug('Styles applied')
+		doc.add_paragraph('April 1st')
+		logging.debug(doc.paragraphs[3 + counter].text)
+		logging.debug(doc.paragraphs[3 + counter].runs[0].text)
+		doc.paragraphs[3 + x*5].style = 'Normal'
+		logging.debug('Styles applied')
 
-			doc.add_page_break() # add page break
+		# doc.add_paragraph("at 7 o'clock")
+		doc.add_paragraph().add_run('at')
+		doc.paragraphs[4 + x*5].add_run("7 o'clock") # add to the same paragraph
+		# logging.debug(doc.paragraphs[4].text)
+		logging.debug(doc.paragraphs[4 + counter].runs[0].text)
+		logging.debug(doc.paragraphs[4 + counter].runs[1].text)
+		# doc.paragraphs[4].runs[0].underline.italic = True # 'at'
+		# doc.paragraphs[4].runs[1].style = 'IntenseQuote' # '7 o'clock'
+		logging.debug('Styles applied')
+
+		doc.add_page_break() # add page break
+
+		counter += 5 # increment by 5 positions so that you can style the next guest properly
 		
 #####################################
 # END WORD DOCUMENT
