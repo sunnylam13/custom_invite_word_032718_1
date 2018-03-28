@@ -265,13 +265,15 @@ we need character type
 
 This style became optional for the paragraph because I could do it line by line instead...  and still retain the default Word style I used earlier...
 
-	center_style_1 = doc.styles.add_style('Center1', WD_STYLE_TYPE.PARAGRAPH)  # use 'Center1' as the name when applying below!  also registers it in Word doc styles list
-	center_para_1 = center_style_1.paragraph_format
-	center_para_1.alignment = WD_ALIGN_PARAGRAPH.CENTER
-	# center_para_1.base_style = styles['Subtitle']
-	center_para_1 = center_style_1.font
-	center_para_1.name = 'Calibri'
-	center_para_1.size = Pt(14)
-	center_para_1.italic = True
+	## paragraph styling
+
+	# center_style_1 = doc.styles.add_style('Center1', WD_STYLE_TYPE.PARAGRAPH)  # use 'Center1' as the name when applying below!  also registers it in Word doc styles list
+	# center_para_1 = center_style_1.paragraph_format
+	# center_para_1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+	# # center_para_1.base_style = styles['Subtitle']
+	# center_para_1 = center_style_1.font
+	# center_para_1.name = 'Calibri'
+	# center_para_1.size = Pt(14)
+	# center_para_1.italic = True
 
 
