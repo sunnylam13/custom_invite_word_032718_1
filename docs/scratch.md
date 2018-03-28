@@ -284,4 +284,31 @@ The run styling overrides the paragraph styling...
 
 The space after the guest name could be fixed by removing the `\n` character that occurs during `readlines()` method usage...
 
+## Wednesday, March 28, 2018 12:33 PM
+
+get error:
+
+	UserWarning: style lookup by style_id is deprecated. Use style name as key instead.
+
+[python-docx style_id error while creating a word document](https://stackoverflow.com/questions/28973277/python-docx-style-id-error-while-creating-a-word-document)
+
+Simple but hard to debug. Just add space between words in style.
+
+	document.add_paragraph('Intense quote', style='IntenseQuote')
+
+Changes to:
+
+	document.add_paragraph('Intense quote', style='Intense Quote')
+
+that means:
+
+	doc.paragraphs[1 + counter].style = 'Heading1'
+
+changes to:
+
+	doc.paragraphs[1 + counter].style = 'Heading 1'
+
+## Wednesday, March 28, 2018 12:42 PM
+
+Okay got rid of the `\n`...
 

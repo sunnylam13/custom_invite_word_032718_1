@@ -6,7 +6,7 @@
 # python3 custom_invite_word_032718_1.py "GUESTNAMES.TXT"
 # python3 custom_invite_word_032718_1.py "../tests/guests.txt"
 
-import docx,sys
+import docx,sys,re
 
 from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
@@ -27,11 +27,23 @@ guest_txt = sys.argv[1]
 
 logging.debug( 'Guest list text file input is:  %s' % (guest_txt) )
 
+# remove carriage return
+# https://regexr.com/3n1el
+line_break_regex1 = re.compile("(\\n)" + "$")
+
+def remove_carriage_return(list):
+	new_list = []
+	for item in list:
+		new_item = line_break_regex1.sub('',item)
+		new_list.append(new_item)
+	return new_list
+
 def guest_list_maker(guest_txt):
 	guest_list = []
 	# open the guest list text file
 	fileObj = open(guest_txt)
 	guest_list = fileObj.readlines() # this should return a list
+	guest_list = remove_carriage_return(guest_list)
 	logging.debug( 'The guest list extracted from text is:  ' )
 	logging.debug( guest_list )
 	# return the guest_list to outside the function for use
@@ -98,8 +110,8 @@ def construct_invite_1(doc,guest_list):
 		
 		# insert the guest's name
 		doc.add_paragraph(name)
-		logging.debug(doc.paragraphs[1].text)
-		doc.paragraphs[1 + counter].style = 'Heading1'
+		logging.debug(doc.paragraphs[1 + counter].text)
+		doc.paragraphs[1 + counter].style = 'Heading 1'
 		doc.paragraphs[1 + counter].alignment = WD_ALIGN_PARAGRAPH.CENTER
 		logging.debug('Styles applied')
 		
