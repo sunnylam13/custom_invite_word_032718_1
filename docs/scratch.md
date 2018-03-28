@@ -280,4 +280,8 @@ Never mind, I can still use this style on the paragraphs with runs that have the
 
 The run styling overrides the paragraph styling...
 
+## Wednesday, March 28, 2018 12:29 PM
+
+The space after the guest name could be fixed by removing the `\n` character that occurs during `readlines()` method usage...
+
 
