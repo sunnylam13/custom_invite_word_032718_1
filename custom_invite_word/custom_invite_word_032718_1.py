@@ -44,9 +44,32 @@ def guest_list_maker(guest_txt):
 
 doc = docx.Document()
 
-def construct_invite_1(guest_list):
-	doc.add_paragraph('It would be a pleasure to have the company of')
-	doc.add_paragraph("")
+def construct_invite_1(doc,guest_list):
+
+	for name in guest_list:
+		doc.add_paragraph('It would be a pleasure to have the company of')
+		logging.debug(doc.paragraphs[0].text)
+		doc.paragraphs[0].style = 'Subtitle'
+		
+		doc.add_paragraph(name)
+		logging.debug(doc.paragraphs[1].text)
+		doc.paragraphs[1].style = 'Title'
+		
+		doc.add_paragraph('at 11010 Memory Lane on the Evening of')
+		logging.debug(doc.paragraphs[2].text)
+		doc.paragraphs[2].runs[0].style = 'Heading4' # 'at'
+		doc.paragraphs[2].runs[1].style = 'Heading3' # '11010 Memory Lane on the Evening of'
+		
+		doc.add_paragraph('April 1st')
+		logging.debug(doc.paragraphs[3].text)
+		doc.paragraphs[3].style = 'Normal'
+		
+		doc.add_paragraph("at 7 o'clock")
+		logging.debug(doc.paragraphs[4].text)
+		doc.paragraphs[4].runs[0].style = 'Heading4' # 'at'
+		doc.paragraphs[4].runs[1].style = 'IntenseQuote' # '7 o'clock'
+		
+		doc.add_page_break() # add page break
 
 
 #####################################
@@ -57,11 +80,11 @@ def construct_invite_1(guest_list):
 # EXECUTION
 #####################################
 
-guest_list_maker(guest_txt)
+construct_invite_1( doc,guest_list_maker(guest_txt) )
 
 # save the final word doc
 
-# doc.save('custom_invites_f.docx')
+doc.save('custom_invites_f.docx')
 
 #####################################
 # END EXECUTION
