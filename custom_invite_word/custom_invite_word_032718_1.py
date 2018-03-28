@@ -73,6 +73,17 @@ style_italic_underline_1.size = Pt(11)
 style_italic_underline_1.italic = True
 style_italic_underline_1.underline = True
 
+## paragraph styling
+
+center_style_1 = doc.styles.add_style('Center1', WD_STYLE_TYPE.PARAGRAPH)  # use 'Center1' as the name when applying below!  also registers it in Word doc styles list
+center_para_1 = center_style_1.paragraph_format
+center_para_1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+# center_para_1.base_style = styles['Subtitle']
+center_para_1 = center_style_1.font
+center_para_1.name = 'Calibri'
+center_para_1.size = Pt(14)
+center_para_1.italic = True
+
 def construct_invite_1(doc,guest_list):
 
 	counter = 0
@@ -92,8 +103,9 @@ def construct_invite_1(doc,guest_list):
 		doc.paragraphs[1 + counter].alignment = WD_ALIGN_PARAGRAPH.CENTER
 		logging.debug('Styles applied')
 		
-		doc.add_paragraph().add_run('at ')
-		doc.paragraphs[2 + counter].add_run('11010 Memory Lane on the Evening of') # add to the same paragraph
+		doc.add_paragraph().add_run('at')
+		doc.paragraphs[2 + counter].style = doc.styles['Center1']
+		doc.paragraphs[2 + counter].add_run(' 11010 Memory Lane on the Evening of') # add to the same paragraph
 		logging.debug(doc.paragraphs[2 + counter].runs[0].text)
 		logging.debug(doc.paragraphs[2 + counter].runs[1].text)
 		# doc.paragraphs[2 + counter].runs[0].italic = True # 'at'
@@ -109,8 +121,9 @@ def construct_invite_1(doc,guest_list):
 		logging.debug('Styles applied')
 
 		# doc.add_paragraph("at 7 o'clock")
-		doc.add_paragraph().add_run('at ')
-		doc.paragraphs[4 + counter].add_run("7 o'clock") # add to the same paragraph
+		doc.add_paragraph().add_run('at')
+		doc.paragraphs[4 + counter].style = doc.styles['Center1']
+		doc.paragraphs[4 + counter].add_run(" 7 o'clock") # add to the same paragraph
 		logging.debug(doc.paragraphs[4 + counter].runs[0].text)
 		logging.debug(doc.paragraphs[4 + counter].runs[1].text)
 		# doc.paragraphs[4 + counter].runs[0].underline.italic = True # 'at'

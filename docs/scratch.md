@@ -276,4 +276,8 @@ This style became optional for the paragraph because I could do it line by line 
 	# center_para_1.size = Pt(14)
 	# center_para_1.italic = True
 
+Never mind, I can still use this style on the paragraphs with runs that have their own styling...
+
+The run styling overrides the paragraph styling...
+
 
