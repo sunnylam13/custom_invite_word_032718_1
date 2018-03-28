@@ -222,5 +222,56 @@ Another example of creating a new style:
 	logging.debug( "The style type created is:  %s" % (style_citation_1.name) )
 	logging.debug( style_citation_1.type )
 
+## Wednesday, March 28, 2018 11:55 AM
+
+using wrong style type
+
+	2018-03-28 11:54:56,683 - DEBUG - Styles applied
+	 2018-03-28 11:54:56,683 - DEBUG - at
+	 2018-03-28 11:54:56,683 - DEBUG - 11010 Memory Lane on the Evening of
+	Traceback (most recent call last):
+	  File "custom_invite_word_032718_1.py", line 116, in <module>
+	    construct_invite_1( doc,guest_list_maker(guest_txt) )
+	  File "custom_invite_word_032718_1.py", line 86, in construct_invite_1
+	    doc.paragraphs[2 + counter].runs[1].style = doc.styles['GuestItalics'] # '11010 Memory Lane on the Evening of'
+	  File "/usr/local/lib/python3.6/site-packages/docx/text/run.py", line 137, in style
+	    style_or_name, WD_STYLE_TYPE.CHARACTER
+	  File "/usr/local/lib/python3.6/site-packages/docx/parts/document.py", line 76, in get_style_id
+	    return self.styles.get_style_id(style_or_name, style_type)
+	  File "/usr/local/lib/python3.6/site-packages/docx/styles/styles.py", line 111, in get_style_id
+	    return self._get_style_id_from_style(style_or_name, style_type)
+	  File "/usr/local/lib/python3.6/site-packages/docx/styles/styles.py", line 153, in _get_style_id_from_style
+	    (style.type, style_type)
+	ValueError: assigned style is type PARAGRAPH (1), need type CHARACTER (2)
+	MacBook-Air:custom_invite_word sunnyair$
+
+using:
+
+	style_italic_emph_1 = styles.add_style('GuestItalics', WD_STYLE_TYPE.PARAGRAPH) # use 'GuestItalics' as the name when applying below!
+
+using:
+
+	WD_STYLE_TYPE.PARAGRAPH
+
+seems incorrect
+
+we need character type
+
+[WD_STYLE_TYPE](https://python-docx.readthedocs.io/en/latest/api/enum/WdStyleType.html?highlight=character%20type)
+
+* Specifies one of the four style types: paragraph, character, list, or table.
+
+## Wednesday, March 28, 2018 12:21 PM
+
+This style became optional for the paragraph because I could do it line by line instead...  and still retain the default Word style I used earlier...
+
+	center_style_1 = doc.styles.add_style('Center1', WD_STYLE_TYPE.PARAGRAPH)  # use 'Center1' as the name when applying below!  also registers it in Word doc styles list
+	center_para_1 = center_style_1.paragraph_format
+	center_para_1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+	# center_para_1.base_style = styles['Subtitle']
+	center_para_1 = center_style_1.font
+	center_para_1.name = 'Calibri'
+	center_para_1.size = Pt(14)
+	center_para_1.italic = True
 
 
