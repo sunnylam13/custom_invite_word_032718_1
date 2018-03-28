@@ -29,7 +29,6 @@ def guest_list_maker(guest_txt):
 	guest_list = fileObj.readlines() # this should return a list
 	logging.debug( 'The guest list extracted from text is:  ' )
 	logging.debug( guest_list )
-	# read each line and push the name into the list
 	# return the guest_list to outside the function for use
 	return guest_list
 
