@@ -46,8 +46,8 @@ doc = docx.Document()
 
 def construct_invite_1(doc,guest_list):
 
-	for name in guest_list:
-		for x in ( 0,len(guest_list) ): # start at 0 so that first invite is built right
+	for x in ( 0,len(guest_list) ): # start at 0 so that first invite is built right
+		for name in guest_list:
 			doc.add_paragraph('It would be a pleasure to have the company of')
 			logging.debug(doc.paragraphs[0].text)
 			doc.paragraphs[0 + x*5].style = 'Subtitle'
@@ -86,8 +86,7 @@ def construct_invite_1(doc,guest_list):
 			logging.debug('Styles applied')
 
 			doc.add_page_break() # add page break
-
-
+		
 #####################################
 # END WORD DOCUMENT
 #####################################

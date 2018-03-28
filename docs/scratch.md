@@ -163,4 +163,8 @@ For the very first invite n = 0 * 5 which means no incrementing...
 
 For the 2nd invite n = 1 * 5 which means a five point increment...
 
+## Wednesday, March 28, 2018 11:17 AM
+
+Have to put the position numbering loop as the parent with the name loop as the child.
+
 
